@@ -1,0 +1,1 @@
+# NTDHunter.SharedKernel
