@@ -3,12 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.8.34309.116
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{CAF15053-4898-4232-880C-2DBFA5C70A82}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NTDHunter.SharedKernel", "src\NTDHunter.SharedKernel\NTDHunter.SharedKernel.csproj", "{46F91013-A544-4A03-928A-416D70BEBE06}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{345027FF-3247-4D6D-BA01-87E3C1AC1F82}"
-	ProjectSection(SolutionItems) = preProject
-		src\NTDHunter.SharedKernel\.editorconfig = src\NTDHunter.SharedKernel\.editorconfig
-	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{B12F4EBB-7E78-4F86-835B-DD5A7AA9628C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NTDHunter.SharedKernel.UnitTests", "tests\NTDHunter.SharedKernel.UnitTests\NTDHunter.SharedKernel.UnitTests.csproj", "{C27B06B7-8C0D-4D74-9EE5-AA4E4B240479}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,9 +23,17 @@ Global
 		{46F91013-A544-4A03-928A-416D70BEBE06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46F91013-A544-4A03-928A-416D70BEBE06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46F91013-A544-4A03-928A-416D70BEBE06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C27B06B7-8C0D-4D74-9EE5-AA4E4B240479}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C27B06B7-8C0D-4D74-9EE5-AA4E4B240479}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C27B06B7-8C0D-4D74-9EE5-AA4E4B240479}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C27B06B7-8C0D-4D74-9EE5-AA4E4B240479}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{46F91013-A544-4A03-928A-416D70BEBE06} = {CAF15053-4898-4232-880C-2DBFA5C70A82}
+		{C27B06B7-8C0D-4D74-9EE5-AA4E4B240479} = {B12F4EBB-7E78-4F86-835B-DD5A7AA9628C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9F4652A3-43B7-474C-8AAC-5D21532316B6}
