@@ -1,4 +1,4 @@
-﻿namespace NTDHunter.SharedKernel.UnitTests.EntityBaseTests;
+namespace NTDHunter.SharedKernel.UnitTests.EntityBaseTests;
 
 public class EntityBase_AddDomainEvent
 {
@@ -9,7 +9,7 @@ public class EntityBase_AddDomainEvent
         public void AddTestDomainEvent()
         {
             var domainEvent = new TestDomainEvent();
-            RegisterDomainEvent(domainEvent);
+            RaiseDomainEvent(domainEvent);
         }
     }
 

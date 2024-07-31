@@ -1,8 +1,14 @@
-﻿using MediatR;
+using MediatR;
 
 namespace NTDHunter.SharedKernel;
 
+/// <summary>
+/// A base type for domain events. Depends on MediatR INotification.
+/// </summary>
 public abstract class DomainEventBase : INotification
 {
-    public DateTime DateOccurred { get; set; } = DateTime.UtcNow;
+    /// <summary>
+    /// Occurred event time
+    /// </summary>
+    public DateTime DateOccurred { get; protected set; } = DateTime.UtcNow;
 }

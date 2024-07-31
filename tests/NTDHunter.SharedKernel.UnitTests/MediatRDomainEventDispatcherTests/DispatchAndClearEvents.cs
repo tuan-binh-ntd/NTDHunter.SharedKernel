@@ -1,4 +1,4 @@
-﻿namespace NTDHunter.SharedKernel.UnitTests.MediatRDomainEventDispatcherTests;
+namespace NTDHunter.SharedKernel.UnitTests.MediatRDomainEventDispatcherTests;
 
 public class DispatchAndClearEvents
 {
@@ -8,7 +8,7 @@ public class DispatchAndClearEvents
         public void AddTestDomainEvent()
         {
             var domainEvent = new TestDomainEvent();
-            RegisterDomainEvent(domainEvent);
+            RaiseDomainEvent(domainEvent);
         }
     }
 

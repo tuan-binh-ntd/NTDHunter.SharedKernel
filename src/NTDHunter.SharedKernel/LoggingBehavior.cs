@@ -1,8 +1,7 @@
-﻿using Ardalis.GuardClauses;
-using MediatR;
-using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using System.Reflection;
+using MediatR;
+using Microsoft.Extensions.Logging;
 
 namespace NTDHunter.SharedKernel;
 
@@ -24,14 +23,21 @@ namespace NTDHunter.SharedKernel;
 /// </summary>
 /// <typeparam name="TRequest"></typeparam>
 /// <typeparam name="TResponse"></typeparam>
-public class LoggingBehavior<TRequest, TRespnse>(ILogger<Mediator> logger) : IPipelineBehavior<TRequest, TRespnse>
-    where TRequest : IRequest<TRespnse>
+public class LoggingBehavior<TRequest, TResponse>(ILogger<Mediator> logger) : IPipelineBehavior<TRequest, TResponse>
+    where TRequest : IRequest<TResponse>
 {
     private readonly ILogger<Mediator> _logger = logger;
 
-    public async Task<TRespnse> Handle(TRequest request, RequestHandlerDelegate<TRespnse> next, CancellationToken cancellationToken)
+    /// <summary>
+    /// Logging information of command and query pipelines
+    /// </summary>
+    /// <param name="request">Type of request <see cref="ICommand{TResponse}"/> or <see cref="IQuery{TResponse}"/>, etc.</param>
+    /// <param name="next">Delegate of handler</param>
+    /// <param name="cancellationToken">Propagates notification that operations should be canceled.</param>
+    /// <returns></returns>
+    public async Task<TResponse> Handle(TRequest request, RequestHandlerDelegate<TResponse> next, CancellationToken cancellationToken)
     {
-        Guard.Against.Null(request);
+        ArgumentNullException.ThrowIfNull(request, nameof(request));
         if (_logger.IsEnabled(LogLevel.Information))
         {
             _logger.LogInformation("Handling {RequestName}", typeof(TRequest).Name);

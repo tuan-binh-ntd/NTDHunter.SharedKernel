@@ -1,4 +1,4 @@
-﻿namespace NTDHunter.SharedKernel;
+namespace NTDHunter.SharedKernel;
 
 /// <summary>
 /// NOTE: Use `readonly record struct` for most cases in C# 10+
@@ -12,8 +12,17 @@ public abstract class ValueObject : IComparable, IComparable<ValueObject>
 {
     private int? _cachedHashCode;
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <returns></returns>
     protected abstract IEnumerable<object> GetEqualityComponents();
 
+    /// <summary>
+    /// Compare 2 value objects
+    /// </summary>
+    /// <param name="obj">An instance of object</param>
+    /// <returns>True if two value objects equals; otherwise false</returns>
     public override bool Equals(object? obj)
     {
         if (obj == null)
@@ -27,6 +36,10 @@ public abstract class ValueObject : IComparable, IComparable<ValueObject>
         return GetEqualityComponents().SequenceEqual(valueObject.GetEqualityComponents());
     }
 
+    /// <summary>
+    /// GetHashCode
+    /// </summary>
+    /// <returns>A value od hashcode</returns>
     public override int GetHashCode()
     {
         if (!_cachedHashCode.HasValue)
@@ -44,6 +57,11 @@ public abstract class ValueObject : IComparable, IComparable<ValueObject>
         return _cachedHashCode.Value;
     }
 
+    /// <summary>
+    /// Compare two value objects
+    /// </summary>
+    /// <param name="obj">An instance of object</param>
+    /// <returns></returns>
     public int CompareTo(object? obj)
     {
         if (obj == null)
@@ -87,11 +105,22 @@ public abstract class ValueObject : IComparable, IComparable<ValueObject>
         return object1.Equals(object2) ? 0 : -1;
     }
 
+    /// <summary>
+    /// Compare two value objects
+    /// </summary>
+    /// <param name="other">An instance of value object</param>
+    /// <returns></returns>
     public int CompareTo(ValueObject? other)
     {
         return CompareTo(other as object);
     }
 
+    /// <summary>
+    /// == implicit operator
+    /// </summary>
+    /// <param name="a">An instance of value object</param>
+    /// <param name="b">An instance of value object</param>
+    /// <returns>True if <paramref name="a"/> is the same <paramref name="b"/>; otherwise false</returns>
     public static bool operator ==(ValueObject a, ValueObject b)
     {
         if (a is null && b is null)
@@ -103,6 +132,12 @@ public abstract class ValueObject : IComparable, IComparable<ValueObject>
         return a.Equals(b);
     }
 
+    /// <summary>
+    /// != implicit operator
+    /// </summary>
+    /// <param name="a">An instance of value object</param>
+    /// <param name="b">An instance of value object</param>
+    /// <returns>True if <paramref name="a"/> is the not same <paramref name="b"/>; otherwise false</returns>
     public static bool operator !=(ValueObject a, ValueObject b)
     {
         return !(a == b);
