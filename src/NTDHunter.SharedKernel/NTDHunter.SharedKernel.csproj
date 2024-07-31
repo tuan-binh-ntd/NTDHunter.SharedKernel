@@ -10,9 +10,9 @@
     <Summary>A SharedKernel project/package used for the projects applies Clean Architecture, DDD, CQRS, etc.</Summary>
     <PackageProjectUrl>https://github.com/tuan-binh-ntd/NTDHunter.SharedKernel</PackageProjectUrl>
     <RepositoryUrl>https://github.com/tuan-binh-ntd/NTDHunter.SharedKernel</RepositoryUrl>
-    <PackageTags>DDD;Shared Kernel;SharedKernel;Domain-Driven Design;ValueObject;Value Object;NTDHunter;Clean;Clean Architecture;CQRS</PackageTags>
+    <PackageTags>DDD;SharedKernel;Domain-Driven Design;ValueObject;NTDHunter;Clean Architecture;CQRS</PackageTags>
     <!-- <PackageIcon>icon.png</PackageIcon> -->
-    <Version>1.1.0</Version>
+    <Version>1.0.1</Version>
     <PackageReleaseNotes>
       * Updated to latest NuGet Package Versions
     </PackageReleaseNotes>
